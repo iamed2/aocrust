@@ -1,0 +1,10 @@
+[package]
+name = "aocrust"
+version = "0.1.0"
+authors = ["Eric Davies <iamed2@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+aoc-runner = "0.1.0"
+aoc-runner-derive = "0.1.0"
+distance = "0.4"
