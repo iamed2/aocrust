@@ -18,10 +18,8 @@ pub fn freq_change<T: Iterator<Item=i32>>(input: &mut T) -> i32 {
     input.by_ref().sum()
 }*/
 
-pub fn freq_change_parser<'a>(input: &'a str) -> impl Iterator<Item=i32> + Clone + 'a {
-    input.lines().map(|l| {
-        l.parse::<i32>().unwrap()
-    })
+pub fn freq_change_parser<'a>(input: &'a str) -> impl Iterator<Item = i32> + Clone + 'a {
+    input.lines().map(|l| l.parse::<i32>().unwrap())
 }
 
 #[aoc(day1, part1)]
@@ -110,7 +108,11 @@ pub fn letter_diffs(input: &str) -> String {
         for j in (i + 1)..lines.len() {
             let dist = distance::hamming(lines[i], lines[j]).unwrap();
             if dist == 1 {
-                let vec = lines[i].bytes().zip(lines[j].bytes()).filter_map(|(a, b)| if a == b { Some(a) } else { None }).collect();
+                let vec = lines[i]
+                    .bytes()
+                    .zip(lines[j].bytes())
+                    .filter_map(|(a, b)| if a == b { Some(a) } else { None })
+                    .collect();
                 return String::from_utf8(vec).unwrap();
             }
         }
@@ -119,8 +121,7 @@ pub fn letter_diffs(input: &str) -> String {
     panic!("No near-match found");
 }
 
-
-aoc_lib!{ year = 2018 }
+aoc_lib! { year = 2018 }
 
 /*#[cfg(test)]
 mod tests {
